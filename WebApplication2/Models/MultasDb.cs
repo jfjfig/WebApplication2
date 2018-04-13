@@ -8,9 +8,9 @@ namespace WebApplication2.Models
 { 
     public class MultasDb:DbContext
     {
-        public MultasDb():base("MultasDbConS")
+        public MultasDb():base("MultasDbConS") 
         {
-
+            
         }
 
         public virtual DbSet<Viaturas> Viaturas { get; set; }
