@@ -46,16 +46,16 @@ namespace WebApplication2.Controllers
         // obter mais detalhes, consulte https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Nome,Fotografia,Esquadra")] Agentes agentes)
+        public ActionResult Create([Bind(Include = "ID,Nome,Fotografia,Esquadra")] Agentes agente,
+            HttpPostedFileBase uploadFoto)
         {
             if (ModelState.IsValid)
-            {
-                db.Agentes.Add(agentes);
+            {   db.Agentes.Add(agente);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(agentes);
+            return View(agente);
         }
 
         // GET: Agentes/Edit/5
