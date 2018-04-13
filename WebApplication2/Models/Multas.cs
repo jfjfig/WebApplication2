@@ -8,9 +8,9 @@ namespace WebApplication2.Models
     {
         public int ID { get; set; }
 
-        public String LocalInf { get; set; }
+        public String LocalDaMulta { get; set; }
 
-        public DateTime DataInf { get; set; }
+        public DateTime DataDaMulta { get; set; }
 
         public String Infracao { get; set; }
 

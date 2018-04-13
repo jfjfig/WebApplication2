@@ -12,7 +12,7 @@ namespace WebApplication2.Models
         public int ID { get; set; }
 
         [Required(ErrorMessage="O campo {0} é de preenchimento obrigatorio.")]
-        [RegularExpression("[A-ZÂÓÍ][a-záéíóúãõâêôûñäëïöü]+(( | e | de | do | das | d'|-)[A-ZÂÓÍ][a-záéíóúãõâêôûñäëïöü]+){1,3}", ErrorMessage = "Deve pelo menos o primeiro e ultimo nome, ambos com a primeira letra maiuscula e as outras minusculas")]
+    [RegularExpression("[A-ZÂÓÍÉ][a-záéíóúãõâêôûñäëïöü]+(( | e | de | do | das | d'|-)[A-ZÂÓÍ][a-záéíóúãõâêôûñäëïöü]+){1,3}", ErrorMessage = "Deve pelo menos o primeiro e ultimo nome, ambos com a primeira letra maiuscula e as outras minusculas")]
         [StringLength(70,ErrorMessage ="O {0} só aceita {1} caracteres")]
         public String Nome { get; set; }
 
@@ -20,7 +20,7 @@ namespace WebApplication2.Models
         public String Fotografia { get; set; }
 
         [Required(ErrorMessage = "O campo {0} é de preenchimento obrigatorio.")]
-        [RegularExpression("[A-Za-z- ]+", ErrorMessage = "Campo não valido")]
+     [RegularExpression("([A-ZÂÓÍÉ][0-9a-záéíóúãõâêôûñäëïöü ]+)+", ErrorMessage = "Campo não valido")]
         public String Esquadra{ get; set; }
 
         public virtual ICollection<Multas> ListaMultasFK { get; set; }

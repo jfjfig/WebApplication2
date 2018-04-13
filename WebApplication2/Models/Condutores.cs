@@ -17,12 +17,12 @@ namespace WebApplication2.Models
 
         public String Telemovel { get; set; }
 
-        public DateTime DataNasc { get; set; }
+        public DateTime DataNascimento { get; set; }
 
-        public String CCond { get; set; }
+        public String NumCartaConducao { get; set; }
 
-        public String LocalEmicao { get; set; }
+        public String LocalEmissao { get; set; }
 
-        public DateTime DataValidade { get; set; }
+        public DateTime DataValidadeCarta { get; set; }
     }
 }

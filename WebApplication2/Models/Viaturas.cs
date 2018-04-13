@@ -19,11 +19,11 @@ namespace WebApplication2.Models
 
         public String Cor { get; set; }
 
-        public String Dono { get; set; }
+        public String NomeDono { get; set; }
 
         public String MoradaDono { get; set; }
 
-        public String CodigoPostalDono { get; set; }
+        public String CodPostalDono { get; set; }
 
     }
 }
