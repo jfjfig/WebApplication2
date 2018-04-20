@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace WebApplication2.Models
 {
@@ -9,6 +10,7 @@ namespace WebApplication2.Models
         public Agentes() => ListaMultasFK = new HashSet<Multas>();
 
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int ID { get; set; }
 
         [Required(ErrorMessage="O campo {0} é de preenchimento obrigatorio.")]
@@ -16,7 +18,6 @@ namespace WebApplication2.Models
         [StringLength(70,ErrorMessage ="O {0} só aceita {1} caracteres")]
         public String Nome { get; set; }
 
-        [Required(ErrorMessage = "O  campo {0} é de preenchimento obrigatorio.")]
         public String Fotografia { get; set; }
 
         [Required(ErrorMessage = "O campo {0} é de preenchimento obrigatorio.")]

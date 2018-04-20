@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -49,12 +50,46 @@ namespace WebApplication2.Controllers
         public ActionResult Create([Bind(Include = "ID,Nome,Fotografia,Esquadra")] Agentes agente,
             HttpPostedFileBase uploadFoto)
         {
-            if (ModelState.IsValid)
-            {   db.Agentes.Add(agente);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+            int novoID;
+            try
+            {
+                novoID = db.Agentes.Max(a => a.ID) + 1;
+            }
+            catch (Exception)
+            {
+                novoID = 1;
             }
 
+            agente.ID = novoID;
+            String foto = "Agente_" + novoID + ".jpg";
+            String caminho;
+
+            if (uploadFoto == null)
+            {
+                ModelState.AddModelError("", "Não inseriu foto");
+                return View(agente);
+            }
+            else
+            {
+                agente.Fotografia = foto;
+                caminho = Path.Combine(Server.MapPath("~/imagens/"), foto);
+            }
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    db.Agentes.Add(agente);
+                    db.SaveChanges();
+                    uploadFoto.SaveAs(caminho);
+                    return RedirectToAction("Index");
+                }
+                catch (Exception)
+                {
+                    ModelState.AddModelError("", "Não foi possivel criar o agente");
+                }
+
+            }
             return View(agente);
         }
 
