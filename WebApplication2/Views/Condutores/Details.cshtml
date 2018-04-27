@@ -1,0 +1,74 @@
+﻿@model WebApplication2.Models.Condutores
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Condutores</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BI)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BI)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Telemovel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Telemovel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataNascimento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataNascimento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NumCartaConducao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NumCartaConducao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LocalEmissao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LocalEmissao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataValidadeCarta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataValidadeCarta)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

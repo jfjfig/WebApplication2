@@ -86,7 +86,7 @@ namespace WebApplication2.Controllers
                 }
                 catch (Exception)
                 {
-                    ModelState.AddModelError("", "Não foi possivel criar o agente");
+                    ModelState.AddModelError("", String.Format("Não foi possivel criar o agente '{0}'",agente.Nome));
                 }
 
             }
@@ -129,12 +129,12 @@ namespace WebApplication2.Controllers
         {
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return RedirectToAction("Index");
             }
             Agentes agentes = db.Agentes.Find(id);
             if (agentes == null)
             {
-                return HttpNotFound();
+                return RedirectToAction("Index");
             }
             return View(agentes);
         }
@@ -143,11 +143,18 @@ namespace WebApplication2.Controllers
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
-        {
-            Agentes agentes = db.Agentes.Find(id);
-            db.Agentes.Remove(agentes);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+        {   Agentes agentes = db.Agentes.Find(id);
+            try
+            {
+                db.Agentes.Remove(agentes);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            catch (Exception)
+            {
+                ModelState.AddModelError("", "Não foi possivel destruir o agente "+agentes.Nome+", verificar se existem multas passadas por este agente");
+            }
+            return View(agentes);
         }
 
         protected override void Dispose(bool disposing)

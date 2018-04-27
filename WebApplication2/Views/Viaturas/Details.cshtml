@@ -1,0 +1,74 @@
+﻿@model WebApplication2.Models.Viaturas
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Viaturas</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Matricula)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Matricula)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Marca)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Marca)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Modelo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Modelo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NomeDono)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NomeDono)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MoradaDono)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MoradaDono)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CodPostalDono)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CodPostalDono)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

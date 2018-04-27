@@ -1,0 +1,69 @@
+﻿@model IEnumerable<WebApplication2.Models.Condutores>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BI)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Telemovel)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataNascimento)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NumCartaConducao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LocalEmissao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataValidadeCarta)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BI)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Telemovel)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DataNascimento)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NumCartaConducao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LocalEmissao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DataValidadeCarta)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>
